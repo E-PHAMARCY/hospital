@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Outfit', 'Inter', sans-serif;
+  }
+}
+
+@layer components {
+  .badge-pulse {
+    @apply relative flex h-3 w-3;
+  }
+  .badge-pulse-ping {
+    @apply animate-ping absolute inline-flex h-full w-full rounded-full opacity-75;
+  }
+  .badge-pulse-dot {
+    @apply relative inline-flex rounded-full h-3 w-3;
+  }
+
+  .glass-card {
+    @apply bg-white/90 backdrop-blur-md border border-slate-200/80 shadow-soft;
+  }
+  
+  .glass-header {
+    @apply bg-white/95 backdrop-blur-md border-b border-slate-200/80;
+  }
+
+  .gradient-brand {
+    @apply bg-gradient-to-r from-hospital-700 via-hospital-600 to-navy-800 text-white;
+  }
+
+  /* Shared page container: 90% full-width with balanced left/right gutters */
+  .site-container {
+    @apply w-[90%] mx-auto;
+  }
+
+  @keyframes marquee {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-50%); }
+  }
+
+  .animate-marquee {
+    display: flex;
+    width: max-content;
+    animation: marquee 28s linear infinite;
+  }
+
+  .animate-marquee:hover {
+    animation-play-state: paused;
+  }
+}
